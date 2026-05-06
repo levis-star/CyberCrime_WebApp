@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="light" lang="sw"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ulinzi wa Jamii - Cyber Chatbot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#edbe8b",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eef1f0",
+                        "outline-variant": "#c3c6ce",
+                        "on-tertiary-fixed-variant": "#604018",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "surface-variant": "#e0e3e2",
+                        "surface-container-low": "#f1f4f3",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2e4964",
+                        "surface-container": "#ebeeed",
+                        "secondary": "#006a65",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#aec9ea",
+                        "surface-container-highest": "#e0e3e2",
+                        "on-background": "#181c1c",
+                        "inverse-surface": "#2d3131",
+                        "primary": "#00162a",
+                        "primary-container": "#0d2b45",
+                        "secondary-fixed-dim": "#59dad1",
+                        "on-primary-container": "#7893b2",
+                        "on-secondary-container": "#006f69",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201e",
+                        "surface-tint": "#46607d",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7faf9",
+                        "primary-fixed": "#d0e4ff",
+                        "on-surface": "#181c1c",
+                        "tertiary": "#221100",
+                        "on-primary-fixed": "#001d35",
+                        "surface-dim": "#d7dbda",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7faf9",
+                        "on-tertiary-container": "#b2885a",
+                        "secondary-container": "#76f3ea",
+                        "on-surface-variant": "#43474d",
+                        "tertiary-fixed": "#ffddba",
+                        "surface": "#f7faf9",
+                        "outline": "#73777e",
+                        "tertiary-container": "#3e2300",
+                        "primary-fixed-dim": "#aec9ea",
+                        "surface-container-high": "#e6e9e8",
+                        "secondary-fixed": "#79f6ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "headline-xl": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "label-sm": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .chat-messages {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface dark:bg-inverse-surface shadow-md dark:shadow-none">
+<div class="flex items-center gap-base">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Ulinzi wa Jamii</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<nav class="flex gap-md items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Citizen_portal.html">Nyumbani / Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Report_wizard.html">Ripoti / Report</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Awareness.html">Elimu / Awareness</a>
+<a class="font-label-md text-label-md text-secondary font-bold border-b-2 border-secondary hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="#">Chatbot</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Contact.html">Mawasiliano / Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">language</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">account_circle</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop min-h-screen">
+<div class="max-w-[800px] mx-auto space-y-lg">
+<!-- Page Header -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-md">Chatbot ya Usalama Mtandaoni</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Uliza maswali kuhusu usalama mtandaoni. / Ask questions about online safety.</p>
+</div>
+<!-- Chat Interface -->
+<div class="bg-surface-container-low p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="chat-messages space-y-md mb-lg" id="chat-messages">
+<div class="flex items-start gap-sm">
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-on-secondary text-sm font-bold">AI</div>
+<div class="bg-surface-variant p-sm rounded-lg text-body-md">Habari! Mimi ni chatbot ya Ulinzi wa Jamii. Ninaweza kukusaidia na maswali kuhusu usalama mtandaoni. Uliza chochote! / Hello! I am the Ulinzi wa Jamii chatbot. I can help with questions about online safety. Ask anything!</div>
+</div>
+</div>
+<div class="flex gap-sm">
+<input class="flex-1 bg-surface border border-outline-variant rounded-lg px-md py-sm text-body-md focus:ring-2 focus:ring-secondary" id="user-input" placeholder="Andika ujumbe wako hapa... / Type your message here..." type="text"/>
+<button class="bg-secondary text-on-secondary px-md py-sm rounded-lg font-label-md hover:bg-opacity-90 transition-all" id="send-btn">Tuma / Send</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high py-lg px-margin-mobile md:px-margin-desktop text-center">
+<p class="text-label-sm text-on-surface-variant">© 2024 Ulinzi wa Jamii - Cyber Security Chatbot</p>
+</footer>
+<script>
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    const responses = {
+        'habari': 'Habari! Vipi? / Hello! How are you?',
+        'usalama': 'Usalama mtandaoni ni muhimu. Tumia nenosiri thabiti na usifungue viungo vishuki. / Online safety is important. Use strong passwords and avoid suspicious links.',
+        'ripoti': 'Ili kuripoti uhalifu, nenda kwenye ukurasa wa Ripoti. / To report a crime, go to the Report page.',
+        'default': 'Samahani, sijaelewa. Jaribu kuuliza kuhusu usalama mtandaoni. / Sorry, I didn\'t understand. Try asking about online safety.'
+    };
+
+    function addMessage(sender, message) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex items-start gap-sm';
+        msgDiv.innerHTML = `
+            <div class="w-8 h-8 ${sender === 'AI' ? 'bg-secondary' : 'bg-primary'} rounded-full flex items-center justify-center text-on-${sender === 'AI' ? 'secondary' : 'primary'} text-sm font-bold">${sender}</div>
+            <div class="bg-surface-variant p-sm rounded-lg text-body-md">${message}</div>
+        `;
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function getResponse(message) {
+        const lowerMsg = message.toLowerCase();
+        if (lowerMsg.includes('habari') || lowerMsg.includes('hello')) return responses.habari;
+        if (lowerMsg.includes('usalama') || lowerMsg.includes('safety')) return responses.usalama;
+        if (lowerMsg.includes('ripoti') || lowerMsg.includes('report')) return responses.ripoti;
+        return responses.default;
+    }
+
+    sendBtn.addEventListener('click', () => {
+        const message = userInput.value.trim();
+        if (message) {
+            addMessage('You', message);
+            setTimeout(() => addMessage('AI', getResponse(message)), 500);
+            userInput.value = '';
+        }
+    });
+
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendBtn.click();
+    });
+</script>
+</body>
+</html>

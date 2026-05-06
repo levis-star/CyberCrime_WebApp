@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="sw"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ulinzi wa Jamii - Cyber Awareness</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#edbe8b",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eef1f0",
+                        "outline-variant": "#c3c6ce",
+                        "on-tertiary-fixed-variant": "#604018",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "surface-variant": "#e0e3e2",
+                        "surface-container-low": "#f1f4f3",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2e4964",
+                        "surface-container": "#ebeeed",
+                        "secondary": "#006a65",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#aec9ea",
+                        "surface-container-highest": "#e0e3e2",
+                        "on-background": "#181c1c",
+                        "inverse-surface": "#2d3131",
+                        "primary": "#00162a",
+                        "primary-container": "#0d2b45",
+                        "secondary-fixed-dim": "#59dad1",
+                        "on-primary-container": "#7893b2",
+                        "on-secondary-container": "#006f69",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201e",
+                        "surface-tint": "#46607d",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7faf9",
+                        "primary-fixed": "#d0e4ff",
+                        "on-surface": "#181c1c",
+                        "tertiary": "#221100",
+                        "on-primary-fixed": "#001d35",
+                        "surface-dim": "#d7dbda",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7faf9",
+                        "on-tertiary-container": "#b2885a",
+                        "secondary-container": "#76f3ea",
+                        "on-surface-variant": "#43474d",
+                        "tertiary-fixed": "#ffddba",
+                        "surface": "#f7faf9",
+                        "outline": "#73777e",
+                        "tertiary-container": "#3e2300",
+                        "primary-fixed-dim": "#aec9ea",
+                        "surface-container-high": "#e6e9e8",
+                        "secondary-fixed": "#79f6ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "headline-xl": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "label-sm": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .floating-glow {
+            animation: float 6s ease-in-out infinite;
+        }
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .fade-in-up.delay-200 {
+            animation-delay: 0.2s;
+        }
+        .fade-in-up.delay-400 {
+            animation-delay: 0.4s;
+        }
+        .fade-in-up.delay-600 {
+            animation-delay: 0.6s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-14px); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface dark:bg-inverse-surface shadow-md dark:shadow-none">
+<div class="flex items-center gap-base">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Ulinzi wa Jamii</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<nav class="flex gap-md items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Citizen_portal.html">Nyumbani / Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Report_wizard.html">Ripoti / Report</a>
+<a class="font-label-md text-label-md text-secondary font-bold border-b-2 border-secondary hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="#">Elimu / Awareness</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Chatbot.html">Chatbot</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="Contact.html">Mawasiliano / Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">language</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container-high rounded-full transition-colors">account_circle</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop min-h-screen">
+<div class="max-w-[1200px] mx-auto space-y-12">
+<!-- Hero -->
+<section class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-gutter items-center">
+<div class="space-y-6 fade-in-up delay-200">
+<p class="inline-flex items-center gap-2 rounded-full bg-secondary-container/15 text-secondary px-4 py-2 font-label-md">Kitovu cha Uelewa / Awareness Hub</p>
+<h1 class="font-headline-xl text-headline-xl text-primary">Elimu ya Usalama Mtandaoni kwa Kila Mtumiaji</h1>
+<p class="font-body-lg text-on-surface-variant">Kuwa tayari dhidi ya ulaghai wa pesa, usalama wa mitandao ya kijamii na ulinzi wa nywila. Soma zifuatazo kuelewa hatari na hatua za kujikinga.</p>
+<div class="flex flex-wrap gap-3">
+<a class="inline-flex items-center gap-2 bg-primary text-on-primary px-5 py-3 rounded-full font-label-md hover:bg-primary-container transition-all" href="#money">
+<span class="material-symbols-outlined">paid</span>
+Usalama wa Fedha
+</a>
+<a class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-5 py-3 rounded-full font-label-md border border-outline hover:bg-surface transition-all" href="#social">
+<span class="material-symbols-outlined">share</span>
+Mitandao ya Kijamii
+</a>
+<a class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-5 py-3 rounded-full font-label-md border border-outline hover:bg-surface transition-all" href="#password">
+<span class="material-symbols-outlined">vpn_key</span>
+Ulinzi wa Nywila
+</a>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-secondary/15 via-surface to-primary/10 p-8 shadow-xl fade-in-up delay-400">
+<div class="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-secondary/20 blur-3xl floating-glow"></div>
+<div class="absolute bottom-6 left-6 w-32 h-32 rounded-full bg-primary/20 blur-2xl floating-glow"></div>
+<div class="relative z-10 p-6 bg-white/90 rounded-[2rem] border border-surface-variant shadow-lg">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-14 h-14 rounded-3xl bg-primary text-on-primary flex items-center justify-center text-3xl">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<p class="font-label-md text-secondary uppercase tracking-[0.2em]">Soma kwa undani</p>
+<h2 class="font-headline-md text-headline-md text-primary">Weka usalama wako kwanza</h2>
+</div>
+</div>
+<div class="space-y-4 text-body-md text-on-surface-variant">
+<p><strong>Ulinzi wa fedha, faragha ya mitandao ya kijamii, na nywila thabiti</strong> ni safu za kwanza za kujikinga dhidi ya uhalifu wa mtandaoni.</p>
+<div class="grid grid-cols-1 gap-3">
+<div class="flex items-center gap-3 rounded-3xl bg-surface-container-high p-4 border border-outline-variant">
+<span class="material-symbols-outlined text-secondary">currency_exchange</span>
+<div>
+<p class="font-label-md text-primary">Malipo ya simu</p>
+<p class="text-label-sm text-on-surface-variant">Jifunze kuziba mianya ya ulaghai.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 rounded-3xl bg-surface-container-high p-4 border border-outline-variant">
+<span class="material-symbols-outlined text-secondary">security</span>
+<div>
+<p class="font-label-md text-primary">Mitandao ya kijamii</p>
+<p class="text-label-sm text-on-surface-variant">Linda picha na ujumbe wako.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 rounded-3xl bg-surface-container-high p-4 border border-outline-variant">
+<span class="material-symbols-outlined text-secondary">lock</span>
+<div>
+<p class="font-label-md text-primary">Nywila za siri</p>
+<p class="text-label-sm text-on-surface-variant">Tumia nywila imara na 2FA.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section Blocks -->
+<section id="money" class="grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-gutter items-center rounded-[2rem] bg-surface-container-lowest border border-outline-variant p-8 shadow-sm fade-in-up delay-200">
+<div class="space-y-5">
+<p class="font-label-md text-secondary uppercase tracking-[0.2em]">Usalama wa Fedha</p>
+<h2 class="font-headline-lg text-headline-lg text-primary">Mobile Money Safety</h2>
+<p class="text-body-lg text-on-surface-variant">Jifunze jinsi ya kulinda akaunti yako ya pesa kwa simu dhidi ya matapeli, wizi wa ulaghai na usimamizi wa taarifa zako za kifedha.</p>
+<ul class="list-disc list-inside space-y-3 text-body-md text-on-surface-variant">
+<li><strong>Usishiriki PIN au nambari ya uthibitisho:</strong> Huduma halali haitakutaka kutoa taarifa hizi kwa simu au ujumbe.</li>
+<li><strong>Tumia programu rasmi:</strong> Pakua tu kutoka Google Play, App Store, au tovuti ya mtoa huduma rasmi.</li>
+<li><strong>Thibitisha mpokeaji kabla ya kutuma pesa:</strong> Hakikisha nambari na jina ni sahihi kabla ya kumaliza muamala.</li>
+<li><strong>Ripoti miamala isiyo ya kawaida mara moja:</strong> Tuma taarifa kwa huduma yako ya simu na ripoti kwa serikali au polisi.</li>
+</ul>
+<a class="inline-flex items-center gap-2 text-secondary font-bold hover:gap-3 transition-all" href="#social">Endelea kusoma <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-primary/10 via-secondary/10 to-transparent p-6">
+<div class="absolute -top-8 -right-10 w-28 h-28 rounded-full bg-secondary/20 blur-2xl floating-glow"></div>
+<div class="rounded-[1.5rem] bg-white p-6 border border-outline-variant shadow-lg">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center text-2xl">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div>
+<p class="font-label-md text-primary">Aina za hatari</p>
+<p class="text-label-sm text-on-surface-variant">SIM Swap, phishing, SMS ulaghai.</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Matapeli hujaribu kukutaka kutoa PIN, kubofya viungo vya ulaghai au kubadilisha nambari yako ya simu. Usimjulishwe kwa maelezo mwenyewe.</p>
+</div>
+</div>
+</section>
+<section id="social" class="grid grid-cols-1 lg:grid-cols-[0.9fr_1fr] gap-gutter items-center rounded-[2rem] bg-surface-container-lowest border border-outline-variant p-8 shadow-sm fade-in-up delay-400">
+<div class="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-primary/10 via-surface to-transparent p-6">
+<div class="absolute -left-10 top-8 w-24 h-24 rounded-full bg-primary/20 blur-2xl floating-glow"></div>
+<div class="rounded-[1.5rem] bg-white p-6 border border-outline-variant shadow-lg">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-2xl bg-primary text-on-primary flex items-center justify-center text-2xl">
+<span class="material-symbols-outlined">people</span>
+</div>
+<div>
+<p class="font-label-md text-primary">Taarifa za faragha</p>
+<p class="text-label-sm text-on-surface-variant">Jinsi ya kujilinda kwenye Facebook, WhatsApp, Instagram.</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Tengeneza mipangilio ya faragha kwa kutumia chaguo za akaunti yako. Usishiriki maelezo ya kibinafsi kama anwani, namba ya simu, au taarifa za malipo kwa umma.</p>
+</div>
+</div>
+<div class="space-y-5">
+<p class="font-label-md text-secondary uppercase tracking-[0.2em]">Mitandao ya Kijamii</p>
+<h2 class="font-headline-lg text-headline-lg text-primary">Social Media Security</h2>
+<p class="text-body-lg text-on-surface-variant">Linda taarifa zako binafsi na faragha unapotumia Facebook, Instagram na WhatsApp. Tumia usalama wa mtandao kila uchao.</p>
+<ul class="list-disc list-inside space-y-3 text-body-md text-on-surface-variant">
+<li><strong>Tumia mipangilio ya faragha ya marafiki tu:</strong> Fanya wasifu wako usomeke kwa wale tu unaowajua.</li>
+<li><strong>Usifungue viungo visivyo wazi:</strong> Angalia URL kabla ya kubofya na tambua ulaghai wa mitandao ya kijamii.</li>
+<li><strong>Weka usalama wa ujumbe:</strong> Zima huduma za papo hapo kwa watu usiojua na ripoti akaunti zinazohatarisha.</li>
+<li><strong>Hifadhi habari za mtu binafsi kwa usalama:</strong> Usichapishe picha za kitambulisho, nambari za simu, au namba ya bima.</li>
+</ul>
+<a class="inline-flex items-center gap-2 text-secondary font-bold hover:gap-3 transition-all" href="#password">Endelea kusoma <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</section>
+<section id="password" class="grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-gutter items-center rounded-[2rem] bg-surface-container-lowest border border-outline-variant p-8 shadow-sm fade-in-up delay-600">
+<div class="space-y-5">
+<p class="font-label-md text-secondary uppercase tracking-[0.2em]">Ulinzi wa Nywila</p>
+<h2 class="font-headline-lg text-headline-lg text-primary">Password Protection</h2>
+<p class="text-body-lg text-on-surface-variant">Mbinu bora za kutengeneza na kutunza nywila imara na salama unazonahitaji kwa maisha ya kisasa ya mtandaoni.</p>
+<ul class="list-disc list-inside space-y-3 text-body-md text-on-surface-variant">
+<li><strong>Nywila imara:</strong> Tumia mchanganyiko wa herufi kubwa, herufi ndogo, nambari na alama.</li>
+<li><strong>Usitumie nywila moja kwa huduma nyingi:</strong> Tumia kila huduma nywila tofauti ili kuziba mianya ya wizi.</li>
+<li><strong>Tumia meneja wa nywila:</strong> Hifadhi nywila zako kwa usalama badala ya kuzikumbuka au kuziandika.</li>
+<li><strong>Weka uthibitisho wa hatua mbili (2FA):</strong> Ongeza tabaka la ziada la usalama kwa akaunti zako muhimu.</li>
+</ul>
+</div>
+<div class="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-secondary/10 via-surface to-transparent p-6">
+<div class="absolute -right-10 top-10 w-24 h-24 rounded-full bg-secondary/20 blur-2xl floating-glow"></div>
+<div class="rounded-[1.5rem] bg-white p-6 border border-outline-variant shadow-lg">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center text-2xl">
+<span class="material-symbols-outlined">key</span>
+</div>
+<div>
+<p class="font-label-md text-primary">Ndani ya nywila</p>
+<p class="text-label-sm text-on-surface-variant">Mbinu za kujenga nywila zisizovunjika.</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Nywila zenye nguvu ni ngao ya kwanza. Ikiwa itachomoka, uthibitisho wa hatua mbili huweza kuzuia mtapeli kuingia kwa urahisi.</p>
+</div>
+</div>
+</section>
+<div class="bg-primary/5 rounded-[2rem] border border-primary/10 p-8 text-center fade-in-up">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Tayari kupata msaada zaidi?</h2>
+<p class="text-body-md text-on-surface-variant mb-6">Ikiwa unahitaji msaada maalum, tuma taarifa kupitia ukurasa wa mawasiliano au ripoti tukio moja kwa moja.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 rounded-full font-label-md hover:bg-secondary-container transition-all" href="Contact.html">
+<span class="material-symbols-outlined">contact_support</span>
+Mawasiliano
+</a>
+<a class="inline-flex items-center gap-2 bg-surface text-primary border border-outline px-6 py-3 rounded-full font-label-md hover:bg-surface-container-high transition-all" href="Report_wizard.html">
+<span class="material-symbols-outlined">report</span>
+Ripoti sasa
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high py-lg px-margin-mobile md:px-margin-desktop text-center">
+<p class="text-label-sm text-on-surface-variant">© 2024 Ulinzi wa Jamii - Cyber Security Awareness</p>
+</footer>
+</body>
+</html>
