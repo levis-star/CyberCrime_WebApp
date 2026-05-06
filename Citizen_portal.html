@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="sw"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ulinzi wa Jamii - Citizen Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#edbe8b",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eef1f0",
+                        "outline-variant": "#c3c6ce",
+                        "on-tertiary-fixed-variant": "#604018",
+                        "on-secondary-fixed-variant": "#00504c",
+                        "surface-variant": "#e0e3e2",
+                        "surface-container-low": "#f1f4f3",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2e4964",
+                        "surface-container": "#ebeeed",
+                        "secondary": "#006a65",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#aec9ea",
+                        "surface-container-highest": "#e0e3e2",
+                        "on-background": "#181c1c",
+                        "inverse-surface": "#2d3131",
+                        "primary": "#00162a",
+                        "primary-container": "#0d2b45",
+                        "secondary-fixed-dim": "#59dad1",
+                        "on-primary-container": "#7893b2",
+                        "on-secondary-container": "#006f69",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00201e",
+                        "surface-tint": "#46607d",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f7faf9",
+                        "primary-fixed": "#d0e4ff",
+                        "on-surface": "#181c1c",
+                        "tertiary": "#221100",
+                        "on-primary-fixed": "#001d35",
+                        "surface-dim": "#d7dbda",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7faf9",
+                        "on-tertiary-container": "#b2885a",
+                        "secondary-container": "#76f3ea",
+                        "on-surface-variant": "#43474d",
+                        "tertiary-fixed": "#ffddba",
+                        "surface": "#f7faf9",
+                        "outline": "#73777e",
+                        "tertiary-container": "#3e2300",
+                        "primary-fixed-dim": "#aec9ea",
+                        "surface-container-high": "#e6e9e8",
+                        "secondary-fixed": "#79f6ed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "headline-xl": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "label-sm": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pattern-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%23006a65' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden pattern-overlay">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-surface shadow-md">
+<div class="font-headline-md text-headline-md font-bold text-primary">Ulinzi wa Jamii</div>
+<div class="hidden md:flex items-center gap-md">
+<nav class="flex items-center gap-gutter">
+<a class="font-label-md text-label-md text-secondary font-bold border-b-2 border-secondary hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="#">Nyumbani / Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="#">Ripoti / Report</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 transition-transform" href="#">Elimu / Awareness</a>
+</nav>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary cursor-pointer p-2 hover:bg-surface-container-high rounded-full transition-colors">language</span>
+<span class="material-symbols-outlined text-primary cursor-pointer p-2 hover:bg-surface-container-high rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer p-2 hover:bg-surface-container-high rounded-full transition-colors">account_circle</span>
+</div>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+</header>
+<main class="pt-20 pb-24 md:pb-0">
+<!-- Hero Section -->
+<section class="relative min-h-[614px] flex items-center px-margin-mobile md:px-margin-desktop py-xl">
+<div class="z-10 max-w-2xl">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-md">
+                    Karibu kwenye <span class="text-secondary">Ulinzi wa Jamii</span><br/>
+<span class="text-headline-lg font-normal opacity-80">Welcome to Community Protection</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-xl">
+                    Linda utambulisho wako na mali zako mtandaoni. Jiunge na jitihada za kitaifa za kuimarisha usalama wa mtandao kwa kila Mtanzania.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary text-on-primary px-lg py-md rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm shadow-md hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency</span>
+                        Ripoti Tukio / Report an Incident
+                    </button>
+<button class="border-2 border-secondary text-secondary px-lg py-md rounded-xl font-label-md text-label-md flex items-center justify-center gap-sm hover:bg-secondary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">info</span>
+                        Pata Msaada / Get Help
+                    </button>
+</div>
+</div>
+<div class="absolute right-0 top-0 w-1/2 h-full hidden lg:block opacity-20 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="A sophisticated digital pattern background inspired by traditional Tanzanian textile motifs like Kanga and Kitenge, rendered in a modern, minimalist deep navy and teal color scheme. The lighting is bright and clean, typical of a professional institutional government portal. Subtle geometric shapes interlock to create a sense of national unity and technological security, with high-quality soft gradients and pristine white space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcCgKPP2_xBsxPOr9K8NmOsecazw_pNI1WVkS9k0M6I4boj7Oc879GA0eOGAv-vDKfM_giY13G_cofTdyPSeCzaHpsaighnw0idqOVrRfmu7rAHCft6Zx3GzwyXQQASOxKpyW4YEm9GGKqaufMd2bL5FPAZOryLmoufsojYKvO02X4LZN0rK7_t2nrz6BTW3mWCOCsHzJLTV1fSmQtEmsPeLZ9RP4WqdVDr32sFLg_0NL85gynZNoi1h9X5UhlM0R7WK0TTMLr6s6W"/>
+</div>
+</section>
+<!-- Threat Map Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-xl bg-surface-container-low">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Ramani ya Matukio / Incident Map</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Hali ya usalama wa mtandao nchini Tanzania kwa sasa.</p>
+</div>
+<div class="flex gap-md bg-surface p-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-label-sm">Salama</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="text-label-sm">Tahadhari</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter h-[500px]">
+<div class="lg:col-span-2 bg-surface rounded-xl overflow-hidden shadow-md relative">
+<img class="w-full h-full object-cover" data-alt="A professional, interactive high-tech heatmap of Tanzania displaying digital security status across different regions like Dar es Salaam, Arusha, and Dodoma. The map uses a clean institutional style with teal zones for safe areas and soft red pulses for high-alert regions. The visual style is modern corporate, with clear typography labels and a sophisticated data visualization aesthetic that inspires trust and transparency." data-location="Tanzania" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMK18NZoV5XNYrZPOiuUvvuBr-XnHsHmw81kZWMuc6hp6POnXaXRuCYYfdg0fHvx_415OzR2ChQc4g1EYn2QHMzIXit6DPSQcokwcq-WUskVGEDJuVGo2WiwA3Qe47Qdam1MzdPAGkhuDy3IErOxFOYKhv6nMClDXHCM-I4sFmQHGVplYlkVgRi53pmKaJ3cBSqkxHx1KqyPNrudDFhfdVc-qIgcjU0gPdRcqiVd4huA0JOfrahxZwgVxFCI5rwfgtRar5TNNPzbae"/>
+<div class="absolute bottom-md left-md bg-surface/90 backdrop-blur-md p-md rounded-lg shadow-lg border border-outline-variant max-w-xs">
+<h4 class="font-label-md text-primary mb-xs">Mkoa wa Dar es Salaam</h4>
+<p class="text-label-sm text-error font-bold mb-xs">Tahadhari: Ongezeko la SMS za kitapeli</p>
+<p class="text-label-sm text-on-surface-variant">Tunawashauri wananchi kuwa makini na jumbe za 'Tuma kwenye namba hii'.</p>
+</div>
+</div>
+<div class="flex flex-col gap-md overflow-y-auto pr-2">
+<div class="bg-surface p-md rounded-xl shadow-sm border-l-4 border-secondary">
+<h4 class="font-label-md text-primary">Kanda ya Ziwa</h4>
+<p class="text-label-sm text-secondary font-bold">Salama / Low Threat</p>
+<p class="text-label-sm text-on-surface-variant mt-xs">Mifumo imara ya ufuatiliaji imeimarishwa Mwanza.</p>
+</div>
+<div class="bg-surface p-md rounded-xl shadow-sm border-l-4 border-tertiary-fixed-dim">
+<h4 class="font-label-md text-primary">Kanda ya Kati</h4>
+<p class="text-label-sm text-on-tertiary-container font-bold">Wastani / Medium Alert</p>
+<p class="text-label-sm text-on-surface-variant mt-xs">Tahadhari kuhusu wizi wa nywila (passwords) Dodoma.</p>
+</div>
+<div class="bg-surface p-md rounded-xl shadow-sm border-l-4 border-error">
+<h4 class="font-label-md text-primary">Kanda ya Pwani</h4>
+<p class="text-label-sm text-error font-bold">Tahadhari Kuu / High Alert</p>
+<p class="text-label-sm text-on-surface-variant mt-xs">Ongezeko la mashambulizi ya mitandao ya kijamii.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Awareness Hub -->
+<section class="px-margin-mobile md:px-margin-desktop py-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xl text-center">Kitovu cha Uelewa / Awareness Hub</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl shadow-md overflow-hidden group hover:-translate-y-2 transition-all border border-outline-variant">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A clean, modern instructional digital illustration showing a mobile phone screen with secure transaction icons in a professional teal and navy theme. The scene includes Tanzanian mobile money brand aesthetics used subtly to ground the context. The lighting is soft and professional, highlighting elements of safety and encryption for the average citizen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgJv7BK7coRiijD_ADtDgX63GR-K0Njr3Ba0trMnGNZsn4RLJKOMZfVm9JVj9a4bRcDkW8nHwqF5Km32PRUwGa-664LDMqIx5gf77T-TMSbYH8S2zTlMEryEaCjak2kcoj0pT-NZuPi9ogX8um6cRr4HvshfyGTlCoAkdkg2arl5LoVALyy4ud6PUmkVEtqOQ6eiba4SZpTfmZO2JmrCFH90rjs3mwQI78CRohwfcRb4UebZCpSn7DTwjVtxBpFMWmzBoDI5_kr5sa"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Usalama wa Fedha</h3>
+<p class="text-label-sm text-secondary font-bold uppercase tracking-wider mb-sm">Mobile Money Safety</p>
+<p class="font-body-md text-on-surface-variant mb-md">Jifunze jinsi ya kulinda akaunti yako ya pesa kwa simu dhidi ya matapeli.</p>
+<a class="text-secondary font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                            Soma Zaidi / Read More <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl shadow-md overflow-hidden group hover:-translate-y-2 transition-all border border-outline-variant">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="High-quality digital security concept image showing a shield icon overlaying social media profile placeholders on a clean interface. The design uses a sophisticated corporate palette of deep navy and bright teal, reflecting a modern Tanzanian digital protection system. Bright, airy lighting reinforces a sense of communal safety and institutional transparency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEN8wn9hfLJnZUm9DJviEX2PBbpSpo6pZKOX6wdaZMLvCkJsn6lityCop-4eCp3fsgSrCUPOdOfzvKjsGOH6VcMZ8JIxmyNSM8x7efAEgqKimQnBkVafS58S1w0LjsPmFu0BUaSAfQAhUzuWBQlKTSUNPUV4sUQi0RbLjLe9QMxfTq13T2S6akPdl85z_I0isefojYNDxHHyKkbFOTqrsqrlk5mojq0QI5Nz67omWJAoRPlyFd3aYhdRVikDM--sheEizbfYuYwCgJ"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Mitandao ya Kijamii</h3>
+<p class="text-label-sm text-secondary font-bold uppercase tracking-wider mb-sm">Social Media Security</p>
+<p class="font-body-md text-on-surface-variant mb-md">Linda taarifa zako binafsi na faragha unapotumia Facebook, Instagram na WhatsApp.</p>
+<a class="text-secondary font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                            Soma Zaidi / Read More <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl shadow-md overflow-hidden group hover:-translate-y-2 transition-all border border-outline-variant">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Close up image of a futuristic digital keyboard with one key highlighted in glowing teal featuring a lock icon. The style is modern corporate with deep navy shadows and bright highlights, emphasizing password protection and multi-factor authentication. The overall mood is serious yet accessible, projecting national cyber defense capability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDph0XjwZwo_yhnompucV6TUhhUQXywphtJlg1q1ODSFRquE7m6xU-nqgotR-p1o8cRXveczqtvWOc5G5AgpAGX7CaMw8YvJQRCwWZGvAvtnfpqAVK2OdNQpvEW6fNSlUhbeGIG7K8RCWqH0UulUEt0WkvGcAMEqioopscCMvNh9MKy8nShUqU-5NfEu0rTo65Js0JJSvnWQqjwZg2S0WtsI-59cRiW3yhqwjaDgxqfkfi77BovlNZrLJdJp_qBExheWvLzvtmL2aBY"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="p-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Ulinzi wa Nywila</h3>
+<p class="text-label-sm text-secondary font-bold uppercase tracking-wider mb-sm">Password Protection</p>
+<p class="font-body-md text-on-surface-variant mb-md">Mbinu bora za kutengeneza na kutunza nywila (passwords) imara na salama.</p>
+<a class="text-secondary font-label-md flex items-center gap-xs hover:gap-sm transition-all" href="#">
+                            Soma Zaidi / Read More <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-md px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-sm bg-primary text-on-primary">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-sm text-headline-sm text-on-primary mb-xs">Ulinzi wa Jamii</span>
+<p class="font-label-sm text-label-sm opacity-70">© 2024 Ulinzi wa Jamii. Jamhuri ya Muungano wa Tanzania.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-secondary-fixed transition-colors" href="#">Contact Police</a>
+<a class="font-label-sm text-label-sm text-outline-variant hover:text-secondary-fixed transition-colors" href="#">FAQ</a>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface px-2 pb-safe md:hidden shadow-[0px_-4px_12px_rgba(13,43,69,0.05)] h-16 rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Nyumbani</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">emergency</span>
+<span class="font-label-sm text-label-sm">Ripoti</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">Chatbot</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-sm text-label-sm">Elimu</span>
+</div>
+</nav>
+<!-- AI Chatbot FAB -->
+<button class="fixed right-md bottom-20 md:bottom-md z-40 bg-secondary text-on-secondary w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform group">
+<span class="material-symbols-outlined text-3xl group-hover:hidden" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<div class="hidden group-hover:flex items-center gap-xs px-md">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-md">Chat na Ulinzi</span>
+</div>
+</button>
+</body></html>
